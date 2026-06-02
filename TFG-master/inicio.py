@@ -1,3 +1,10 @@
+import os
+import warnings
+
+# Suppress pygame warnings
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+warnings.filterwarnings('ignore')
+
 import pygame
 import sys
 
