@@ -309,6 +309,8 @@ class Pantallas:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_r:
                         return "repetir"
+                    elif event.key == pygame.K_l:
+                        self.pantalla_ranking()
                     elif event.key == pygame.K_ESCAPE:
                         return "salir"
                     else:
@@ -391,6 +393,14 @@ class Pantallas:
                 (variables.ANCHO // 2 - texto_reiniciar.get_width() // 2, panel_y + 215),
             )
 
+            texto_ranking = font_small.render(
+                "Pulsa L para ver el ranking", True, (255, 220, 80)
+            )
+            self.ventana.blit(
+                texto_ranking,
+                (variables.ANCHO // 2 - texto_ranking.get_width() // 2, panel_y + 255),
+            )
+
             texto_menu = font_small.render(
                 "Pulsa cualquier otra tecla para volver al menu",
                 True,
@@ -398,7 +408,7 @@ class Pantallas:
             )
             self.ventana.blit(
                 texto_menu,
-                (variables.ANCHO // 2 - texto_menu.get_width() // 2, panel_y + 255),
+                (variables.ANCHO // 2 - texto_menu.get_width() // 2, panel_y + 295),
             )
 
             texto_salir = font_small.render(
@@ -406,7 +416,7 @@ class Pantallas:
             )
             self.ventana.blit(
                 texto_salir,
-                (variables.ANCHO // 2 - texto_salir.get_width() // 2, panel_y + 295),
+                (variables.ANCHO // 2 - texto_salir.get_width() // 2, panel_y + 335),
             )
 
             pygame.display.flip()
@@ -474,6 +484,8 @@ class Pantallas:
                         return "siguiente"
                     elif event.key == pygame.K_r:
                         return "repetir"
+                    elif event.key == pygame.K_l:
+                        self.pantalla_ranking()
                     elif event.key == pygame.K_ESCAPE:
                         return "salir"
 
@@ -591,6 +603,17 @@ class Pantallas:
                 ),
             )
 
+            texto_ranking = self.recursos.font_victoria_small.render(
+                "Pulsa L para ver el ranking", True, (255, 220, 80)
+            )
+            self.ventana.blit(
+                texto_ranking,
+                (
+                    variables.ANCHO // 2 - texto_ranking.get_width() // 2,
+                    panel_y + 295,
+                ),
+            )
+
             texto_salir = self.recursos.font_victoria_small.render(
                 "Pulsa ESC para salir",
                 True,
@@ -600,7 +623,7 @@ class Pantallas:
                 texto_salir,
                 (
                     variables.ANCHO // 2 - texto_salir.get_width() // 2,
-                    panel_y + 315,
+                    panel_y + 335,
                 ),
             )
 
