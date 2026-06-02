@@ -58,7 +58,7 @@ class Pantallas:
             self.ventana.blit(texto_fecha, (x, y))
             y += line_height
 
-    def pedir_nombre(self, title="Introduce tu nombre", prompt_text="Pulsa Enter para guardar, Esc para ANON."):
+    def pedir_nombre(self, title="Introduce tu nombre", prompt_text="Pulsa Enter para guardar, Esc para Invitado."):
         nombre = ""
 
         while True:
@@ -70,11 +70,11 @@ class Pantallas:
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
-                        return nombre.strip() or "ANON"
+                        return nombre.strip() or "Invitado"
                     if event.key == pygame.K_BACKSPACE:
                         nombre = nombre[:-1]
                     elif event.key == pygame.K_ESCAPE:
-                        return "ANON"
+                        return "Invitado"
                     elif event.unicode.isprintable() and len(nombre) < 16:
                         nombre += event.unicode
 
@@ -122,7 +122,7 @@ class Pantallas:
         if self.player_name is None:
             self.player_name = self.pedir_nombre(
                 "Introduce nombre de jugador",
-                "Pulsa Enter para guardar, Esc para ANON."
+                "Pulsa Enter para guardar, Esc para Invitado."
             )
             if self.player_name is None:
                 return "salir"
@@ -277,7 +277,7 @@ class Pantallas:
                     elif event.key == pygame.K_n:
                         nombre = self.pedir_nombre(
                             "Introduce nombre de jugador",
-                            "Pulsa Enter para guardar, Esc para ANON."
+                            "Pulsa Enter para guardar, Esc para Invitado."
                         )
                         if nombre is None:
                             return "salir"
@@ -454,7 +454,7 @@ class Pantallas:
         if self.player_name is None:
             self.player_name = self.pedir_nombre(
                 "Introduce tu nombre",
-                "Pulsa Enter para guardar, Esc para ANON."
+                "Pulsa Enter para guardar, Esc para Invitado."
             )
             if self.player_name is None:
                 return "salir"
